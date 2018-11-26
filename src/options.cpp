@@ -1,7 +1,7 @@
 #include "timestamp/options.h"
 
 namespace timestamp {
-	Options::Options(int argc, char* argv[]) {
+	std::vector<std::string> Options::parse(int argc, char* argv[]) {
 
 		std::vector<std::string> opts(argv, argv + argc);
 		for (int i = 0; i < argc; i++) {
@@ -14,6 +14,8 @@ namespace timestamp {
 				}
 			}
 		}
+
+		return m_options;
 	}
 
 	std::vector<std::string> Options::get_options() {
