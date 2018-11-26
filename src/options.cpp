@@ -2,9 +2,17 @@
 
 namespace timestamp {
 	Options::Options(int argc, char* argv[]) {
-		for (int i = 1; i < argc && argv[i][0] == '-'; i++) {
-			std::string temp(argv[i]);
-			m_options.insert(m_options.end(), temp.begin() + 1 , temp.end());
+
+		std::vector<std::string> opts(argv, argv + argc);
+		for (int i = 0; i < argc; i++) {
+			if (opts[i].substr(0,2).compare("--") == 0) {
+				m_options.push_back(opts[i].substr(2));
+			}
+			else if (opts[i].substr(0,1).compare("-") == 0) {
+				for (size_t j = 1; j < opts[i].length(); j++) {
+					m_options.push_back(opts[i].substr(j,1));
+				}
+			}
 		}
 	}
 
