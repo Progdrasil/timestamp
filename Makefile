@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -std=c++14
+CFLAGS = -Wall -std=c++14 -Iinclude
 LDFLAGS =
 
 SRC_DIR = src
@@ -14,7 +14,7 @@ $(BIN_DIR)/$(TARGET): $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) -o $@
 	@echo "Linking complete"
 
-$(OBJ): $(SRC)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) -o $@ -c $< $(CFLAGS)
 	@echo "Compiled "$<" successfully!"
 
