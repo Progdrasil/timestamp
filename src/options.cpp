@@ -5,7 +5,10 @@ namespace timestamp {
 
 		std::vector<std::string> opts(argv, argv + argc);
 		for (int i = 0; i < argc; i++) {
-			if (opts[i].substr(0,2).compare("--") == 0) {
+			if (opts[i].compare("--") == 0) {
+				break;
+			}
+			else if (opts[i].substr(0,2).compare("--") == 0) {
 				m_options.push_back(opts[i].substr(2));
 			}
 			else if (opts[i].substr(0,1).compare("-") == 0) {
