@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 
 	timestamp::Options opt(name, desc);
 
-	vector<string> vec = opt.parse(argc, argv);
+	opt.parse(argc, argv);
 
 	for (auto val : vec) {
 		cout << "A option passed is : " << val << endl;
