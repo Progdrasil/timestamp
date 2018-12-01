@@ -10,9 +10,9 @@ namespace timestamp {
 
 	template <class R, class T>
 	struct OptionDetails {
-		const std::string short;
-		const std::string long;
-		const std::string desc;
+		std::string short;
+		std::string long;
+		std::string desc;
 		std::function<R(T)> fp;
 	};
 
@@ -34,7 +34,7 @@ namespace timestamp {
 				std::function<R(T)> fp
 			);
 
-			void parse(int& argc, char*& argv[]);
+			void parse(int& argc, char**& argv);
 
 			std::vector<std::string> get_options();
 

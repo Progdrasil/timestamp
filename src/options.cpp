@@ -25,7 +25,7 @@ namespace timestamp {
 		}
 	}
 
-	void Options::parse(int &argc, char* &argv[]) {
+	void Options::parse(int &argc, char**& argv) {
 
 		std::vector<std::string> opts(argv, argv + argc);
 		for (int i = 0; i < argc; i++) {
